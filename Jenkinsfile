@@ -72,10 +72,15 @@ pipeline {
             when { expression { params.action == 'create' } }
             steps {
                 script {
-                    jarPush()
+                    sh 'ls -l'
+                    sh 'ls -l jfrog.py'
+                    sh 'chmod +x jfrog.py'
+                    sh 'ls -l jfrog.py'
+                    sh './jfrog.py'
                 }
             }
         }
+
 
         stage('Docker Image Build') {
             when { expression { params.action == 'create' } }
