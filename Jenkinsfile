@@ -72,11 +72,7 @@ pipeline {
             when { expression { params.action == 'create' } }
             steps {
                 script {
-                    sh 'ls -l'
-                    sh 'ls -l jfrog.py'
-                    sh 'chmod +x jfrog.py'
-                    sh 'ls -l jfrog.py'
-                    sh './jfrog.py'
+                    jarPush()
                 }
             }
         }
